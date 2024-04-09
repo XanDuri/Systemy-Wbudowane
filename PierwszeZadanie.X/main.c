@@ -132,7 +132,10 @@ int main(void) {
                         }
                         if (BUTTON_IsPressed(BUTTON_S4) || BUTTON_IsPressed(BUTTON_S3)) break;
                     }
-                    if (BUTTON_IsPressed(BUTTON_S4) || BUTTON_IsPressed(BUTTON_S3)) break;
+                    if (BUTTON_IsPressed(BUTTON_S4) || BUTTON_IsPressed(BUTTON_S3)){ 
+                        kolejka = 0x00;
+                        break;
+                    }
                 }
                 break;
             case 8:
@@ -147,7 +150,10 @@ int main(void) {
                         }
                         if (BUTTON_IsPressed(BUTTON_S4) || BUTTON_IsPressed(BUTTON_S3)) break;
                     }
-                    if (BUTTON_IsPressed(BUTTON_S4) || BUTTON_IsPressed(BUTTON_S3)) break;
+                    if (BUTTON_IsPressed(BUTTON_S4) || BUTTON_IsPressed(BUTTON_S3)){ 
+                        kolejka = 0x00;
+                        break;
+                    }
                 }
                 break;
             case 9:
