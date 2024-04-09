@@ -19,6 +19,7 @@
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 #include "buttons.h"
+#include <math.h>
 #include <xc.h>
 
 unsigned char grayToBinary(unsigned char num) {
@@ -32,7 +33,7 @@ unsigned char grayToBinary(unsigned char num) {
 int main(void) {
     unsigned char portValue;
     
-    // Konfiguracja portów
+    // Konfiguracja portÃ³w
     AD1PCFG = 0xFFFF;
     TRISA = 0x0000;
     portValue = 0x00;
@@ -40,6 +41,7 @@ int main(void) {
     int program = 0;
     unsigned char snakePosition = 0b00000111;
     int direction = 1;
+    int kolejka = 0x00;
     
     while(1){
         if(BUTTON_IsPressed(BUTTON_S3)){
@@ -119,9 +121,36 @@ int main(void) {
                 }
                 break;
             case 7:
-                
+                while(1){
+                    for(int i=0;i<=7;i++){
+                        if(kolejka == 255){
+                            kolejka = 0;
+                        } else{
+                            kolejka = kolejka+pow(2,i);
+                            LATA = kolejka;
+                            __delay32(500000);
+                        }
+                        if (BUTTON_IsPressed(BUTTON_S4) || BUTTON_IsPressed(BUTTON_S3)) break;
+                    }
+                    if (BUTTON_IsPressed(BUTTON_S4) || BUTTON_IsPressed(BUTTON_S3)) break;
+                }
                 break;
             case 8:
+                while(1){
+                    for(int i=7;i>=0;i--){
+                        if(kolejka == 255){
+                            kolejka = 0;
+                        } else{
+                            kolejka = kolejka+pow(2,i);
+                            LATA = kolejka;
+                            __delay32(500000);
+                        }
+                        if (BUTTON_IsPressed(BUTTON_S4) || BUTTON_IsPressed(BUTTON_S3)) break;
+                    }
+                    if (BUTTON_IsPressed(BUTTON_S4) || BUTTON_IsPressed(BUTTON_S3)) break;
+                }
+                break;
+            case 9:
                 
                 break;
             default:
