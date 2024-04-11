@@ -30,6 +30,14 @@ unsigned char grayToBinary(unsigned char num) {
     return num;
 }
 
+unsigned char lfsr = 0b111001;
+
+unsigned char getNextRandomBit() {
+    unsigned char bit = ((lfsr >> 0) ^ (lfsr >> 1)) & 1;
+    lfsr = (lfsr >> 1) | (bit << 5);
+    return bit;
+}
+
 int main(void) {
     unsigned char portValue;
     
@@ -157,7 +165,12 @@ int main(void) {
                 }
                 break;
             case 9:
-                
+                while(1){
+                    unsigned char randomBit = getNextRandomBit();
+                    LATA = lfsr; // Output random bit
+                    __delay32(1500000);
+                    if (BUTTON_IsPressed(BUTTON_S4) || BUTTON_IsPressed(BUTTON_S3)) break;
+                }
                 break;
             default:
                 break;
