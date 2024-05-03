@@ -56,6 +56,8 @@ c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(crt_s
                               (__crt_start_mode_normal)
 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(delay32.Meo)
                               build/default/production/main.o (___delay32)
+c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(udivsi3.XX_o)
+                              build/default/production/main.o (___udivsi3)
 
 
 xc16-ld 2.10 (B)
@@ -68,13 +70,13 @@ Default Scalar Model: Small
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200                0xe2           0x153  (339)
-.const                       0x2e2                0x18            0x24  (36)
-.text                        0x2fa               0x340           0x4e0  (1248)
-.init.delay32                0x63a                0x1c            0x2a  (42)
-.dinit                       0x656                 0x8             0xc  (12)
+.text                        0x200               0x106           0x189  (393)
+.const                       0x306                0x48            0x6c  (108)
+.text                        0x34e               0x53e           0x7dd  (2013)
+.dinit                       0x88c                0x24            0x36  (54)
+.init.delay32                0x8b0                0x1c            0x2a  (42)
 
-                 Total "program" memory used (bytes):          0x68d  (1677) 1%
+                 Total "program" memory used (bytes):          0xa32  (2610) 1%
 
 
 "data" Memory  [Origin = 0x800, Length = 0x2000]
@@ -82,8 +84,9 @@ section                    address   length (PC units)   length (bytes) (dec)
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
 .nbss                        0x800                   0             0x4  (4)
+.data                        0x804                   0            0x20  (32)
 
-                 Total "data" memory used (bytes):            0x4  (4) <1%
+                 Total "data" memory used (bytes):           0x24  (36) <1%
 
 
 Dynamic Memory Usage
@@ -91,12 +94,26 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x804                              0x1ffc  (8188)
+stack                        0x824                              0x1fdc  (8156)
 
-                 Maximum dynamic memory (bytes):         0x1ffc  (8188)
+                 Maximum dynamic memory (bytes):         0x1fdc  (8156)
 
 Info: Project is using a large data memory model when small data memory model is sufficient.
 
+
+External Symbols in Data Memory (by address):
+
+                    0x0804                  _symbol2
+                    0x080c                  _symbol3
+                    0x0814                  _symbol4
+                    0x081c                  _symbol5
+
+External Symbols in Data Memory (by name):
+
+                    0x0804                  _symbol2
+                    0x080c                  _symbol3
+                    0x0814                  _symbol4
+                    0x081c                  _symbol5
 
 External Symbols in Program Memory (by address):
 
@@ -104,31 +121,55 @@ External Symbols in Program Memory (by address):
                   0x00023c                  __psv_init
                   0x000252                  __data_init_standard
                   0x000252                  __data_init
-                  0x0002c8                  __DefaultInterrupt
-                  0x0002cc                  _write
-                  0x0002fa                  _LCD_Initialize
-                  0x000358                  _LCD_PutString
-                  0x000392                  _LCD_PutChar
-                  0x00042c                  _LCD_ClearScreen
-                  0x00055a                  _LCD_CursorEnable
-                  0x000582                  _main
-                  0x00063a                  ___delay32
+                  0x0002cc                  __DefaultInterrupt
+                  0x0002d0                  _write
+                  0x0002e6                  ___udivsi3
+                  0x00034e                  ___delay_us
+                  0x00037a                  ___delay_ms
+                  0x0003a6                  _LCD_sendCommand
+                  0x0003c0                  _LCD_sendData
+                  0x0003da                  _LCD_print
+                  0x0003f4                  _LCD_clearLine
+                  0x000418                  _LCD_setCursor
+                  0x000440                  _LCD_init
+                  0x00046a                  _LCD_saveCustChar
+                  0x000498                  _scrollText
+                  0x000502                  _displayScrollingBanner
+                  0x0005ca                  _main
+                  0x000604                  _LCD_Initialize
+                  0x000662                  _LCD_PutString
+                  0x00069c                  _LCD_PutChar
+                  0x000736                  _LCD_ClearScreen
+                  0x000864                  _LCD_CursorEnable
+                  0x0008b0                  ___delay32
 
 External Symbols in Program Memory (by name):
 
-                  0x00042c                  _LCD_ClearScreen
-                  0x00055a                  _LCD_CursorEnable
-                  0x0002fa                  _LCD_Initialize
-                  0x000392                  _LCD_PutChar
-                  0x000358                  _LCD_PutString
-                  0x0002c8                  __DefaultInterrupt
-                  0x00063a                  ___delay32
+                  0x000736                  _LCD_ClearScreen
+                  0x000864                  _LCD_CursorEnable
+                  0x000604                  _LCD_Initialize
+                  0x00069c                  _LCD_PutChar
+                  0x000662                  _LCD_PutString
+                  0x0003f4                  _LCD_clearLine
+                  0x000440                  _LCD_init
+                  0x0003da                  _LCD_print
+                  0x00046a                  _LCD_saveCustChar
+                  0x0003a6                  _LCD_sendCommand
+                  0x0003c0                  _LCD_sendData
+                  0x000418                  _LCD_setCursor
+                  0x0002cc                  __DefaultInterrupt
+                  0x0008b0                  ___delay32
+                  0x00037a                  ___delay_ms
+                  0x00034e                  ___delay_us
+                  0x0002e6                  ___udivsi3
                   0x000252                  __data_init
                   0x000252                  __data_init_standard
                   0x00023c                  __psv_init
                   0x000200                  __resetPRI
-                  0x000582                  _main
-                  0x0002cc                  _write
+                  0x000502                  _displayScrollingBanner
+                  0x0005ca                  _main
+                  0x000498                  _scrollText
+                  0x0002d0                  _write
 
 Memory Configuration
 
@@ -166,7 +207,7 @@ LOAD c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200         0xe2
+.text             0x000200        0x106
  *(.init)
  .init            0x000200         0x4c c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(crt0_standard.o)
                   0x000200                  __resetPRI
@@ -177,19 +218,22 @@ LOAD c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libfx-elf.a
                   0x000252                  __data_init
  *(.user_init)
  *(.handle)
+ .handle          0x0002c8          0x4 jump_table
  *(.isr*)
- .isr             0x0002c8          0x4 default_isr
-                  0x0002c8                  __DefaultInterrupt
+ .isr             0x0002cc          0x4 default_isr
+                  0x0002cc                  __DefaultInterrupt
  *(.libc)
  *(.libm)
  *(.libdsp)
  *(.lib*)
- .libc.write      0x0002cc         0x14 build/default/production/lcd_printf.o
-                  0x0002cc                  _write
+ .libc.write      0x0002d0         0x14 build/default/production/lcd_printf.o
+                  0x0002d0                  _write
  .libpic30_crt_start_mode
-                  0x0002e0          0x2 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(crt_start_mode_normal.Meo)
-                  0x0002e0                  __crt_start_mode
-                  0x0002e0                  __crt_start_mode_normal
+                  0x0002e4          0x2 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(crt_start_mode_normal.Meo)
+                  0x0002e4                  __crt_start_mode
+                  0x0002e4                  __crt_start_mode_normal
+ .libm.udivsi3    0x0002e6         0x20 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(udivsi3.XX_o)
+                  0x0002e6                  ___udivsi3
 
 usercode
  *(usercode)
@@ -203,34 +247,37 @@ __CONFIG1
 .comment
  *(.comment)
 
-.debug_info       0x000000        0x7f7
+.debug_info       0x000000        0xf22
  *(.debug_info)
- .debug_info      0x000000        0x221 build/default/production/main.o
- .debug_info      0x000221        0x45e build/default/production/lcd.o
- .debug_info      0x00067f        0x178 build/default/production/lcd_printf.o
+ .debug_info      0x000000        0x8bf build/default/production/main.o
+ .debug_info      0x0008bf        0x45e build/default/production/lcd.o
+ .debug_info      0x000d1d        0x178 build/default/production/lcd_printf.o
+ .debug_info      0x000e95         0x8d c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(udivsi3.XX_o)
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x1e3
+.debug_abbrev     0x000000        0x2e7
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0x8a build/default/production/main.o
- .debug_abbrev    0x00008a        0x10b build/default/production/lcd.o
- .debug_abbrev    0x000195         0x4e build/default/production/lcd_printf.o
+ .debug_abbrev    0x000000        0x17a build/default/production/main.o
+ .debug_abbrev    0x00017a        0x10b build/default/production/lcd.o
+ .debug_abbrev    0x000285         0x4e build/default/production/lcd_printf.o
+ .debug_abbrev    0x0002d3         0x14 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(udivsi3.XX_o)
 
-.debug_line       0x000000        0x212
+.debug_line       0x000000        0x3df
  *(.debug_line)
- .debug_line      0x000000         0x4a build/default/production/main.o
- .debug_line      0x00004a        0x18c build/default/production/lcd.o
- .debug_line      0x0001d6         0x3c build/default/production/lcd_printf.o
+ .debug_line      0x000000        0x1d2 build/default/production/main.o
+ .debug_line      0x0001d2        0x18c build/default/production/lcd.o
+ .debug_line      0x00035e         0x3c build/default/production/lcd_printf.o
+ .debug_line      0x00039a         0x45 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(udivsi3.XX_o)
 
-.debug_frame      0x000000        0x18e
+.debug_frame      0x000000        0x2ac
  *(.debug_frame)
- .debug_frame     0x000000         0x2e build/default/production/main.o
- .debug_frame     0x00002e        0x132 build/default/production/lcd.o
- .debug_frame     0x000160         0x2e build/default/production/lcd_printf.o
+ .debug_frame     0x000000        0x14c build/default/production/main.o
+ .debug_frame     0x00014c        0x132 build/default/production/lcd.o
+ .debug_frame     0x00027e         0x2e build/default/production/lcd_printf.o
 
-.debug_str        0x000000          0xa
+.debug_str        0x000000         0x20
  *(.debug_str)
- .debug_str       0x000000          0xa build/default/production/main.o
+ .debug_str       0x000000         0x20 build/default/production/main.o
 
 .debug_loc
  *(.debug_loc)
@@ -239,19 +286,19 @@ __CONFIG1
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000         0xa7
+                  0x000000        0x198
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x1b build/default/production/main.o
+                  0x000000        0x10c build/default/production/main.o
  .debug_pubnames
-                  0x00001b         0x70 build/default/production/lcd.o
+                  0x00010c         0x70 build/default/production/lcd.o
  .debug_pubnames
-                  0x00008b         0x1c build/default/production/lcd_printf.o
+                  0x00017c         0x1c build/default/production/lcd_printf.o
 
 .debug_ranges
  *(.debug_ranges)
 
-.debug_aranges    0x000000         0x50
+.debug_aranges    0x000000         0x70
  *(.debug_aranges)
  .debug_aranges
                   0x000000         0x18 build/default/production/main.o
@@ -259,6 +306,8 @@ __CONFIG1
                   0x000018         0x18 build/default/production/lcd.o
  .debug_aranges
                   0x000030         0x20 build/default/production/lcd_printf.o
+ .debug_aranges
+                  0x000050         0x20 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(udivsi3.XX_o)
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -837,59 +886,73 @@ LOAD c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libm-elf.a
 LOAD c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-elf.a
 END GROUP
 OUTPUT(dist/default/production/TrzecieZadanie.X.production.elf elf32-pic30)
+LOAD jump_table
 LOAD default_isr
 LOAD data_init
 
 .debug_pubtypes
-                  0x000050         0x5c
+                  0x000070         0xa3
  .debug_pubtypes
-                  0x000050         0x12 build/default/production/main.o
+                  0x000070         0x59 build/default/production/main.o
  .debug_pubtypes
-                  0x000062         0x38 build/default/production/lcd.o
+                  0x0000c9         0x38 build/default/production/lcd.o
  .debug_pubtypes
-                  0x00009a         0x12 build/default/production/lcd_printf.o
+                  0x000101         0x12 build/default/production/lcd_printf.o
 
 __c30_signature
-                  0x0000ac         0x24
+                  0x000113         0x2a
  __c30_signature
-                  0x0000ac          0x6 build/default/production/main.o
+                  0x000113          0x6 build/default/production/main.o
  __c30_signature
-                  0x0000b2          0x6 build/default/production/lcd.o
+                  0x000119          0x6 build/default/production/lcd.o
  __c30_signature
-                  0x0000b8          0x6 build/default/production/lcd_printf.o
+                  0x00011f          0x6 build/default/production/lcd_printf.o
  __c30_signature
-                  0x0000be          0x6 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(crt0_standard.o)
+                  0x000125          0x6 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x0000c4          0x6 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(data_init_standard.o)
+                  0x00012b          0x6 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x0000ca          0x6 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(delay32.Meo)
+                  0x000131          0x6 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(delay32.Meo)
+ __c30_signature
+                  0x000137          0x6 c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(udivsi3.XX_o)
 
 .nbss               0x0800          0x4
  .nbss              0x0800          0x4 build/default/production/lcd.o
 
-.config_JTAGEN    0x0157fe          0x2
- .config_JTAGEN
-                  0x0157fe          0x2 build/default/production/main.o
+.data               0x0804         0x20
+ .data              0x0804         0x20 build/default/production/main.o
+                    0x0804                  _symbol2
+                    0x080c                  _symbol3
+                    0x0814                  _symbol4
+                    0x081c                  _symbol5
 
-.config_IESO      0x0157fc          0x2
- .config_IESO     0x0157fc          0x2 build/default/production/main.o
+.const              0x8306         0x48 load address 0x000306  
+ .const             0x8306         0x48 build/default/production/main.o
 
-.const              0x82e2         0x18 load address 0x0002e2  
- .const             0x82e2         0x18 build/default/production/main.o
+.text             0x00034e        0x53e
+ .text            0x00034e        0x2b6 build/default/production/main.o
+                  0x00034e                  ___delay_us
+                  0x00037a                  ___delay_ms
+                  0x0003a6                  _LCD_sendCommand
+                  0x0003c0                  _LCD_sendData
+                  0x0003da                  _LCD_print
+                  0x0003f4                  _LCD_clearLine
+                  0x000418                  _LCD_setCursor
+                  0x000440                  _LCD_init
+                  0x00046a                  _LCD_saveCustChar
+                  0x000498                  _scrollText
+                  0x000502                  _displayScrollingBanner
+                  0x0005ca                  _main
+ .text            0x000604        0x288 build/default/production/lcd.o
+                  0x000604                  _LCD_Initialize
+                  0x000662                  _LCD_PutString
+                  0x00069c                  _LCD_PutChar
+                  0x000736                  _LCD_ClearScreen
+                  0x000864                  _LCD_CursorEnable
 
-.text             0x0002fa        0x340
- .text            0x0002fa        0x288 build/default/production/lcd.o
-                  0x0002fa                  _LCD_Initialize
-                  0x000358                  _LCD_PutString
-                  0x000392                  _LCD_PutChar
-                  0x00042c                  _LCD_ClearScreen
-                  0x00055a                  _LCD_CursorEnable
- .text            0x000582         0xb8 build/default/production/main.o
-                  0x000582                  _main
+.dinit            0x00088c         0x24
+ .dinit           0x00088c         0x24 data_init
 
-.init.delay32     0x00063a         0x1c
- .init.delay32    0x00063a         0x1c c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(delay32.Meo)
-                  0x00063a                  ___delay32
-
-.dinit            0x000656          0x8
- .dinit           0x000656          0x8 data_init
+.init.delay32     0x0008b0         0x1c
+ .init.delay32    0x0008b0         0x1c c:/program files/microchip/xc16/v2.10/bin/bin/../../lib\libc99-pic30-elf.a(delay32.Meo)
+                  0x0008b0                  ___delay32
